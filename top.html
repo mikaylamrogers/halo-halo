@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>ibabaw</title>
+
+    <style>
+      #back {
+        position: absolute;
+        z-index: -100;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+      }
+
+      #grain {
+        position: absolute;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        opacity: 0.02;
+      }
+
+      body {
+          margin: 0;
+          overflow: hidden;
+          background-image: linear-gradient(150deg, #f0f0e4, #552be0, #d9cce3, #d9cce3, #f2dd3a, #f5efe4);
+          background-size: 400%;
+          animation: bg-animation 5s infinite alternate;
+      }
+
+      @keyframes bg-animation {
+          0% {
+              background-position: left;
+          }
+          100% {
+              background-position: right;
+          }
+      } 
+
+      #ilalim {
+        position: absolute;
+        z-index: 99999;
+        top: 77%;
+        left: 86%;
+        mix-blend-mode: screen;
+        animation: bounce 3s infinite alternate;
+      }
+
+      audio {
+        z-index: 9999;
+        position: absolute;
+        margin: auto;
+        top: 95%;
+      }
+  </style>
+  </head>
+  
+  <body>
+    <audio id="audio" src="media/cream.mp3" controls autoplay></audio>
+
+    <a href="index.html">
+      <img src="media/ice.png" id="ilalim" width="15%">
+    </a>
+
+    <canvas id="back"></canvas>
+    <div style="display: none">
+      <video id="liquid" muted autoplay loop playsinline src="media/noise.mp4"></video>
+    </div>
+
+    <canvas id="grain"></canvas>
+    <div style="display: none">
+      <video id="risograph" muted autoplay loop playsinline src="media/grain.mp4"></video>
+    </div>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/top.js"></script>
+  </body>
+</html>

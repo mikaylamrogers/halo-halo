@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>HALO-HALO</title>
+
+    <style>
+      #back {
+        position: absolute;
+        z-index: -100;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+      }
+
+      #grain {
+        position: absolute;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        opacity: 0.01;
+      }
+
+      img {
+          position: absolute;
+          z-index: 9999;
+      }
+
+      body {
+          overflow: hidden;
+          margin: 0;
+          background-image: linear-gradient(150deg, #ddbeeb, #f2e24b, #d7f3fa, #f0f0e4, #ddbeeb, #f0e9aa, #ddbeeb, #e8d527);
+          background-size: 400%;
+          animation: bg-animation 5s infinite alternate;
+      }
+
+      @keyframes bg-animation {
+          0% {
+              background-position: left;
+          }
+          100% {
+              background-position: right;
+          }
+      } 
+
+      #ilalim {
+        top: 5vh;
+        left: 4vh;
+        mix-blend-mode: screen;
+        animation: bounce 5s infinite alternate;
+      }
+
+      #gitna {
+        top: 28vh;
+        left: 55vh;
+        mix-blend-mode: screen;
+        animation: bounce 3s infinite alternate;
+      }
+
+      #ibabaw {
+        top: 20vh;
+        left: 100vh;
+        mix-blend-mode: screen;
+        animation: bounce 7s infinite alternate;
+      }
+
+      @keyframes bounce {
+          0% {
+            transform: translateY(-30px);
+          }
+          100% {
+            transform: translateY(-10px);
+          }
+      } 
+
+      audio {
+        z-index: 9999;
+        position: absolute;
+        margin: auto;
+        top: 95%;
+      }
+  </style>
+  </head>
+  
+  <body>
+     <audio id="audio" src="media/glass.mp3" controls autoplay></audio>
+
+      <a href="base.html">
+          <img src="media/ice.png" id="ilalim">
+      </a>
+
+      <a href="mid.html">
+        <img src="media/banana.png" id="gitna">
+      </a>
+
+      <a href="top.html">
+        <img src="media/top.png" id="ibabaw">
+      </a>
+    
+    <canvas id="back"></canvas>
+    <div style="display: none">
+      <video id="liquid" muted autoplay loop playsinline src="media/noise.mp4"></video>
+    </div>
+
+    <canvas id="grain"></canvas>
+    <div style="display: none">
+      <video id="risograph" muted autoplay loop playsinline src="media/grain.mp4"></video>
+    </div>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

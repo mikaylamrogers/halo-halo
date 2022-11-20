@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>gitna</title>
+
+    <style>
+      #back {
+        position: absolute;
+        z-index: -100;
+        top: 0;
+        left: 0;
+        opacity: 0.3;
+        mix-blend-mode: multiply;
+      }
+
+      #grain {
+        position: absolute;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        /* opacity: 0.5; */
+        /* mix-blend-mode: multiply; */
+        opacity: 0.02;
+      }
+
+      body {
+          overflow: hidden;
+          margin: 0;
+          background-image: linear-gradient(150deg, #f0f0e4, #d9cce3, #ffffff, #d9cce3, #f0f0e4);
+          background-size: 400%;
+          animation: bg-animation 5s infinite alternate;
+      }
+
+      @keyframes bg-animation {
+          0% {
+              background-position: left;
+          }
+          100% {
+              background-position: right;
+          }
+      } 
+
+      #ibabaw {
+        position: absolute;
+        z-index: 99999;
+        top: 73%;
+        left: 80%;
+        mix-blend-mode: screen;
+        animation: bounce 3s infinite alternate;
+      }
+
+      audio {
+        z-index: 9999;
+        position: absolute;
+        margin: auto;
+        top: 95%;
+      }
+  </style>
+  </head>
+  
+  <body>
+    <audio id="audio" src="media/water.mp3" controls autoplay></audio>
+
+    <a href="top.html">
+      <img src="media/top.png" id="ibabaw" width="25%">
+    </a>
+
+    <canvas id="back"></canvas>
+    <div style="display: none">
+      <video id="liquid" muted autoplay loop playsinline src="media/noise.mp4"></video>
+    </div>
+
+    <canvas id="grain"></canvas>
+    <div style="display: none">
+      <video id="risograph" muted autoplay loop playsinline src="media/grain.mp4"></video>
+    </div>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/mid.js"></script>
+  </body>
+</html>
